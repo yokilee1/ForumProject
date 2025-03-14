@@ -1,0 +1,10 @@
+2025-03-14 17:11:38,130 INFO [main] c.n.c.LoggerTests [StartupInfoLogger.java:55] Starting LoggerTests using Java 23.0.1 on LAPTOP-OMHT30DC with PID 32420 (started by 李煜均 in D:\project\community)
+2025-03-14 17:11:38,132 INFO [main] c.n.c.LoggerTests [SpringApplication.java:645] No active profile set, falling back to 1 default profile: "default"
+2025-03-14 17:11:39,922 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2025-03-14 17:11:40,292 INFO [main] c.n.c.LoggerTests [StartupInfoLogger.java:61] Started LoggerTests in 2.513 seconds (JVM running for 3.314)
+2025-03-14 17:11:40,572 INFO [main] c.n.c.LoggerTests [LoggerTests.java:21] info log
+2025-03-14 17:13:57,130 INFO [main] c.n.c.LoggerTests [StartupInfoLogger.java:55] Starting LoggerTests using Java 23.0.1 on LAPTOP-OMHT30DC with PID 12452 (started by 李煜均 in D:\project\community)
+2025-03-14 17:13:57,134 INFO [main] c.n.c.LoggerTests [SpringApplication.java:645] No active profile set, falling back to 1 default profile: "default"
+2025-03-14 17:13:58,821 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2025-03-14 17:13:59,147 INFO [main] c.n.c.LoggerTests [StartupInfoLogger.java:61] Started LoggerTests in 2.353 seconds (JVM running for 3.141)
+2025-03-14 17:13:59,349 INFO [main] c.n.c.LoggerTests [LoggerTests.java:21] info log
