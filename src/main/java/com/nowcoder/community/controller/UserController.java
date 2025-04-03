@@ -78,7 +78,7 @@ public class UserController {
         String headerUrl = domain + contextPath + "/user/header/" + fileName;
         userService.updateHeader(user.getId(), headerUrl);
 
-        return "/site/index";
+        return "redirect:/index";
     }
 
     @RequestMapping(path = "/header/{fileName}", method = RequestMethod.GET)
