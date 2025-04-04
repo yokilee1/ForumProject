@@ -6,6 +6,7 @@
 	<link rel="icon" href="https://static.nowcoder.com/images/logo_87_87.png"/>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
 	<link rel="stylesheet" th:href="@{/css/global.css}">
+	<link rel="stylesheet" th:href="@{/css/index.css}">
 	<title>YOKI论坛-首页</title>
 </head>
 <body>
@@ -136,7 +137,7 @@
 							<span class="badge badge-secondary bg-danger" th:if="${map.post.status == 1}">精华</span>
 						</h6>
 						<div class="text-muted font-size-12">
-							<u class="mr-3" th:utext="${map.user.username}">寒江雪</u> 发布于 <b th:text="${#dates.format(map.post.createTime,'yyyy-MM-dd HH:mm:ss')}"></b>2019-04-15 15:32:18</b>
+							<u class="mr-3" th:utext="${map.user.username}">寒江雪</u> 发布于 <b th:text="${#dates.format(map.post.createTime,'yyyy-MM-dd HH:mm:ss')}">2019-04-15 15:32:18</b>
 							<ul class="d-inline float-right">
 								<li class="d-inline ml-2">赞 11</li>
 								<li class="d-inline ml-2">|</li>
@@ -170,7 +171,7 @@
 	</div>
 
 	<!-- 尾部 -->
-	<footer class="bg-dark">
+	<footer class="bg-dark" th:fragment="footer">
 		<div class="container">
 			<div class="row">
 				<!-- 二维码 -->
@@ -210,18 +211,18 @@
 						<div class="col">
 							<ul class="nav btn-group-vertical company-info">
 								<li class="nav-item text-white-50">
-									公司地址：北京市朝阳区大屯路东金泉时代3-2708北京牛客科技有限公司
+									公司地址：xxxx-xxxx-xxxx
 								</li>
 								<li class="nav-item text-white-50">
 									联系方式：13620054408(电话)&nbsp;&nbsp;&nbsp;&nbsp;642814925@qq.com
 								</li>
 								<li class="nav-item text-white-50">
-									yoki科技©2018 All rights reserved
+									yoki科技©2025 All rights reserved
 								</li>
 								<li class="nav-item text-white-50">
-									京ICP备114514号-4 &nbsp;&nbsp;&nbsp;&nbsp;
+									xxxx-xxxx-xxxx &nbsp;&nbsp;&nbsp;&nbsp;
 									<img src="http://static.nowcoder.com/company/images/res/ghs.png" style="width:18px;" />
-									京公网安备 114514114514号
+									xxxx-xxxx-xxxx-xxxx
 								</li>
 							</ul>
 						</div>

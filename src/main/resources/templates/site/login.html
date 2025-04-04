@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
 	<link rel="stylesheet" th:href="@{/css/global.css}" />
 	<link rel="stylesheet" th:href="@{/css/login.css}" />
-	<title>牛客网-登录</title>
+	<title>YOKI论坛-登录</title>
 </head>
 <body>
 <div class="nk-container">
@@ -61,66 +61,56 @@
 
 	<!-- 内容 -->
 	<div class="main">
-		<div class="container pl-5 pr-5 pt-3 pb-3 mt-3 mb-3">
-			<h3 class="text-center text-info border-bottom pb-3">登&nbsp;&nbsp;录</h3>
-			<form class="mt-5" th:action="@{/login}" method="post">
-				<div class="form-group row">
-					<label for="username" class="col-sm-2 col-form-label text-right">账号:</label>
-					<div class="col-sm-10">
-						<input type="text" th:class="|form-control ${usernameMsg!=null?'is-invalid':''}|"
-							   th:value="${param.username}"
-							   id="username" name="username" placeholder="请输入您的账号!" required>
-						<div class="invalid-feedback" th:text="${usernameMsg}">
-							该账号不存在!
-						</div>
+		<div class="login-container">
+			<h3 class="login-title">登&nbsp;&nbsp;录</h3>
+			<form class="mt-4" th:action="@{/login}" method="post">
+				<div class="form-group">
+					<label for="username" class="form-label">账号</label>
+					<input type="text" th:class="|form-control ${usernameMsg!=null?'is-invalid':''}|"
+						   th:value="${param.username}"
+						   id="username" name="username" placeholder="请输入您的账号!" required>
+					<div class="invalid-feedback" th:text="${usernameMsg}">
+						该账号不存在!
 					</div>
 				</div>
-				<div class="form-group row mt-4">
-					<label for="password" class="col-sm-2 col-form-label text-right">密码:</label>
-					<div class="col-sm-10">
-						<input type="password" th:class="|form-control ${passwordMsg!=null?'is-invalid':''} |"
-							   th:value="${param.password}"
-							   id="password" name="password" placeholder="请输入您的密码!" required>
-						<div class="invalid-feedback" th:text="${passwordMsg}">
-							密码长度不能小于8位!
-						</div>
+				<div class="form-group">
+					<label for="password" class="form-label">密码</label>
+					<input type="password" th:class="|form-control ${passwordMsg!=null?'is-invalid':''} |"
+						   th:value="${param.password}"
+						   id="password" name="password" placeholder="请输入您的密码!" required>
+					<div class="invalid-feedback" th:text="${passwordMsg}">
+						密码长度不能小于8位!
 					</div>
 				</div>
-				<div class="form-group row mt-4">
-					<label for="verifycode" class="col-sm-2 col-form-label text-right">验证码:</label>
-					<div class="col-sm-6">
+				<div class="form-group">
+					<label for="verifycode" class="form-label">验证码</label>
+					<div class="verify-code-container">
 						<input type="text" th:class="|form-control ${codeMsg!=null?'is-invalid':''} |"
 							   id="verifycode" name="code" placeholder="请输入验证码!">
-						<div class="invalid-feedback" th:text="${codeMsg}">
-							验证码不正确!
-						</div>
+						<img th:src="@{/kaptcha}" id="kaptcha" class="verify-code-img"/>
+						<a href="javascript:refrech_kaptcha();" class="refresh-link">刷新验证码</a>
 					</div>
-					<div class="col-sm-4">
-						<img th:src="@{/kaptcha}" id="kaptcha" style="width:100px;height:40px;" class="mr-2"/>
-						<a href="javascript:refrech_kaptcha();" class="font-size-12 align-bottom">刷新验证码</a>
+					<div class="invalid-feedback" th:text="${codeMsg}">
+						验证码不正确!
 					</div>
 				</div>
-				<div class="form-group row mt-4">
-					<div class="col-sm-2"></div>
-					<div class="col-sm-10">
+				<div class="form-group">
+					<div class="remember-me">
 						<input type="checkbox" id="remember-me" name="rememberme"
 							   th:checked="${param.rememberme}">
-						<label class="form-check-label" for="remember-me" >记住我</label>
-						<a href="forget.html" class="text-danger float-right">忘记密码?</a>
+						<label class="form-check-label" for="remember-me">记住我</label>
+						<a href="forget.html" class="forget-password ml-auto">忘记密码?</a>
 					</div>
 				</div>
-				<div class="form-group row mt-4">
-					<div class="col-sm-2"></div>
-					<div class="col-sm-10 text-center">
-						<button type="submit" class="btn btn-info text-white form-control">立即登录</button>
-					</div>
+				<div class="form-group">
+					<button type="submit" class="login-btn w-100">立即登录</button>
 				</div>
 			</form>
 		</div>
 	</div>
 
 	<!-- 尾部 -->
-	<footer class="bg-dark">
+	<footer class="bg-dark" th:replace="index::footer">
 		<div class="container">
 			<div class="row">
 				<!-- 二维码 -->

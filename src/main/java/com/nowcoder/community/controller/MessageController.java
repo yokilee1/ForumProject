@@ -32,6 +32,7 @@ public class MessageController {
 
     @RequestMapping(path = "/letter/list", method = RequestMethod.GET)
     public String getLetterList(Model model, Page page) {
+
         page.setLimit(5);
         page.setPath("/letter/list");
         page.setRows(messageService.findConversationCount(hostHolder.getUser().getId()));

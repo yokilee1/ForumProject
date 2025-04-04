@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
 	<link rel="stylesheet" th:href="@{/css/global.css}" />
 	<link rel="stylesheet" th:href="@{/css/letter.css}" />
-	<title>牛客网-私信详情</title>
+	<title>YOKI论坛-私信详情</title>
 </head>
 <body>
 	<div class="nk-container">
@@ -67,66 +67,21 @@
 						<h6><b class="square"></b> 来自 <i class="text-success" th:utext="${target.username}">落基山脉下的闲人</i> 的私信</h6>
 					</div>
 					<div class="col-4 text-right">
-						<button type="button" class="btn btn-secondary btn-sm" onclick="back();" >返回</button>
-						<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#sendModal">给TA私信</button>
+						<button type="button" class="btn btn-secondary" onclick="back();">返回</button>
+						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sendModal">发送私信</button>
 					</div>
 				</div>
-				<!-- 弹出框 -->
-				<div class="modal fade" id="sendModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-					<div class="modal-dialog modal-lg" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel">发私信</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<form>
-									<div class="form-group">
-										<label for="recipient-name" class="col-form-label">发给：</label>
-										<input type="text" class="form-control" id="recipient-name" th:value="${target.username}">
-									</div>
-									<div class="form-group">
-										<label for="message-text" class="col-form-label">内容：</label>
-										<textarea class="form-control" id="message-text" rows="10"></textarea>
-									</div>
-								</form>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-								<button type="button" class="btn btn-primary" id="sendBtn">发送</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- 提示框 -->
-				<div class="modal fade" id="hintModal" tabindex="-1" role="dialog" aria-labelledby="hintModalLabel" aria-hidden="true">
-					<div class="modal-dialog modal-lg" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="hintModalLabel">提示</h5>
-							</div>
-							<div class="modal-body" id="hintBody">
-								发送完毕!
-							</div>
-						</div>
-					</div>
-				</div>						
 				
 				<!-- 私信列表 -->
 				<ul class="list-unstyled mt-4">
-					<li class="media pb-3 pt-3 mb-2" th:each="map : ${letters}">
-						<a href="profile.html">
-							<img th:src="${map.fromUser.headerUrl}" class="mr-4 rounded-circle user-header" alt="用户头像" >
+					<li class="media pb-3 pt-3 mb-2" th:each="map:${letters}">
+						<a th:href="@{|/user/profile/${map.fromUser.id}|}">
+							<img th:src="${map.fromUser.headerUrl}" class="mr-4 rounded-circle user-header" alt="用户头像">
 						</a>
 						<div class="toast show d-lg-block" role="alert" aria-live="assertive" aria-atomic="true">
 							<div class="toast-header">
 								<strong class="mr-auto" th:utext="${map.fromUser.username}">落基山脉下的闲人</strong>
-								<small th:text="${#dates.format(map.letter.createTime,'yyyy-MM-dd HH:mm:ss')}"></small>2019-04-25 15:49:32</small>
-								<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
+								<small th:text="${#dates.format(map.letter.createTime,'yyyy-MM-dd HH:mm:ss')}">2019-04-25 15:49:32</small>
 							</div>
 							<div class="toast-body" th:utext="${map.letter.content}">
 								君不见, 黄河之水天上来, 奔流到海不复回!
@@ -134,6 +89,7 @@
 						</div>
 					</li>
 				</ul>
+
 				<!-- 分页 -->
 				<nav class="mt-5" th:replace="index::pagination">
 					<ul class="pagination justify-content-center">
@@ -148,11 +104,55 @@
 						<li class="page-item"><a class="page-link" href="#">末页</a></li>
 					</ul>
 				</nav>
+
+				<!-- 私信发送框 -->
+				<div class="modal fade" id="sendModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">发送私信</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form>
+									<div class="form-group">
+										<label for="recipient-name" class="col-form-label">发送给：</label>
+										<input type="text" class="form-control" id="recipient-name" th:value="${target.username}" readonly>
+									</div>
+									<div class="form-group">
+										<label for="message-text" class="col-form-label">私信内容：</label>
+										<textarea class="form-control" id="message-text" rows="10" placeholder="请输入要发送的私信内容..."></textarea>
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+								<button type="button" class="btn btn-primary" id="sendBtn">发送</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- 提示框 -->
+				<div class="modal fade" id="hintModal" tabindex="-1" role="dialog" aria-labelledby="hintModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="hintModalLabel">提示</h5>
+							</div>
+							<div class="modal-body" id="hintBody">
+								发送成功！
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 
 		<!-- 尾部 -->
-		<footer class="bg-dark">
+		<footer class="bg-dark" th:replace="index::footer">
 			<div class="container">
 				<div class="row">
 					<!-- 二维码 -->
