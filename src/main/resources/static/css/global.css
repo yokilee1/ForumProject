@@ -21,7 +21,7 @@ body {
 }
 
 .container {
-	width: 960px;
+	width: auto;
 	padding: 0;
 	max-width: 100%;
 	margin: 0 auto;
@@ -32,10 +32,11 @@ header {
 }
 
 header .navbar-brand {
-	background: url('https://static.thenounproject.com/png/311522-200.png') no-repeat center center;
+
+	background: url('https://simpleicons.org/icons/discord.svg') no-repeat center center;
 	background-size: contain;
-	width: 147px;
-	height: 42px;
+	width: 157px;
+	height: 52px;
 	margin: 5px 15px 5px 0;
 	transition: all 0.3s ease;
 }
@@ -46,11 +47,7 @@ header .navbar-brand:hover {
 	opacity: 0.9;
 }
 
-header .navbar {
-	padding: 8px 0;
-	font-size: 16px;
-	box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-}
+
 
 header .nav-link {
 	color: rgba(255,255,255,0.85) !important;

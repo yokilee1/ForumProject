@@ -23,6 +23,11 @@
     margin-top: 60px;
 }
 
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
 /* 私信标题区域 */
 .container h6 {
     display: flex;
@@ -102,6 +107,11 @@
     background: #f8f9fa;
 }
 
+.media-body h6 {
+    display: flex;
+    justify-content: space-between; /* 用户名在左，日期在右 */
+}
+
 /* 用户头像样式 */
 .user-header {
     width: 50px;
@@ -114,6 +124,7 @@
 .user-header:hover {
     transform: scale(1.1);
 }
+
 
 /* 消息气泡样式 */
 .toast {
