@@ -1,0 +1,260 @@
+/* 主要内容区域 */
+.main {
+    padding: 40px 0;
+    background: #f8f9fa;
+    min-height: calc(100vh - 120px);
+    margin-top: 60px; /* 添加顶部边距，避免与固定导航栏重叠 */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px; /* 添加左右内边距 */
+}
+
+/* 卡片容器 */
+.container.p-5.mt-3.mb-3 {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    padding: 30px !important; /* 调整内边距 */
+    margin: 20px auto !important; /* 修改外边距 */
+    width: 100%;
+    max-width: 800px;
+    position: relative; /* 添加相对定位 */
+    z-index: 1; /* 确保内容在正确的层级 */
+}
+
+/* 头部固定导航样式调整 */
+.bg-dark.sticky-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+}
+
+/* 表单组样式调整 */
+.form-group.row {
+    margin: 15px 0; /* 调整表单组间距 */
+    padding: 0 15px; /* 添加左右内边距 */
+}
+
+/* 标题样式 */
+.text-info.border-bottom {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50 !important;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.text-info.border-bottom::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, #1890ff, #40a9ff);
+}
+
+/* 表单组样式 */
+.form-group.row {
+    margin-bottom: 25px;
+}
+
+.col-form-label {
+    font-size: 15px;
+    color: #595959;
+    font-weight: 500;
+}
+
+/* 文件上传样式 */
+.custom-file {
+    width: 100%;
+}
+
+.custom-file-input {
+    cursor: pointer;
+}
+
+.custom-file-label {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 12px;
+    height: auto;
+    line-height: 1.5;
+    color: #8c8c8c;
+    transition: all 0.3s ease;
+}
+
+.custom-file-label::after {
+    height: 100%;
+    padding: 12px;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    color: #595959;
+    content: "浏览";
+}
+
+.custom-file-input:focus ~ .custom-file-label {
+    border-color: #40a9ff;
+    box-shadow: 0 0 0 2px rgba(24,144,255,0.1);
+}
+
+/* 输入框样式 */
+.form-control {
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 12px;
+    height: auto;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #40a9ff;
+    box-shadow: 0 0 0 2px rgba(24,144,255,0.1);
+}
+
+.form-control::placeholder {
+    color: #bfbfbf;
+}
+
+/* 错误提示样式 */
+.invalid-feedback {
+    font-size: 13px;
+    margin-top: 8px;
+    color: #ff4d4f;
+}
+
+.is-invalid {
+    border-color: #ff4d4f !important;
+}
+
+.is-invalid:focus {
+    box-shadow: 0 0 0 2px rgba(255,77,79,0.1) !important;
+}
+
+/* 按钮样式 */
+.btn-info {
+    background: linear-gradient(135deg, #1890ff 0%, #40a9ff 100%) !important;
+    border: none !important;
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(24,144,255,0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-info:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(24,144,255,0.4);
+}
+
+.btn-info:active {
+    transform: translateY(0);
+}
+
+/* 分隔样式 */
+.mt-5 {
+    margin-top: 3rem !important;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+    .main {
+        margin-top: 56px; /* 移动端导航栏高度通常更小 */
+        padding: 20px 0;
+    }
+
+    .container.p-5.mt-3.mb-3 {
+        padding: 20px !important;
+        margin: 10px auto !important;
+        border-radius: 8px;
+    }
+    
+    .form-group.row {
+        margin: 10px 0;
+        padding: 0 10px;
+    }
+    
+    .col-form-label {
+        text-align: left !important;
+        margin-bottom: 8px;
+        padding-left: 5px;
+    }
+    
+    .btn-info {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* 密码强度指示器 */
+.password-strength {
+    margin-top: 8px;
+    height: 4px;
+    border-radius: 2px;
+    background: #f0f0f0;
+    overflow: hidden;
+}
+
+.password-strength-bar {
+    height: 100%;
+    width: 0;
+    transition: all 0.3s ease;
+}
+
+.strength-weak {
+    width: 33.33%;
+    background: #ff4d4f;
+}
+
+.strength-medium {
+    width: 66.66%;
+    background: #faad14;
+}
+
+.strength-strong {
+    width: 100%;
+    background: #52c41a;
+}
+
+/* 头像预览 */
+.avatar-preview {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 20px auto;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.avatar-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 提示文本 */
+.text-muted {
+    font-size: 13px;
+    color: #8c8c8c !important;
+    margin-top: 8px;
+}
+
+/* 表单分组 */
+.form-section {
+    background: #fafafa;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
