@@ -18,6 +18,7 @@ public interface CommentMapper {
 
     int insertComment(Comment comment);
 
+    Comment selectCommentById(@Param("id") int id);
 
 
 }
