@@ -17,10 +17,10 @@ import java.util.Date;
 
 @SpringBootTest
 @ContextConfiguration(classes = CommunityApplication.class)
-class CommunityApplicationTests implements ApplicationContextAware {
+public class CommunityApplicationTests implements ApplicationContextAware {
     private  ApplicationContext applicationContext;
     @Test
-    void contextLoads() {
+    public void contextLoads() {
 
     }
 
